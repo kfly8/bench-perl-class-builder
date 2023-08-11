@@ -7,6 +7,6 @@ package FooBless {
     }
 
     sub foo($self) {
-        $self->{a} . $self->{b} . $self->{c} . $self->{d};
+        $self->{foo}
     }
 }
