@@ -6,12 +6,7 @@ package FooBless {
         bless \%args, $class;
     }
 
-    sub a($self) { $self->{a} }
-    sub b($self) { $self->{b} }
-    sub c($self) { $self->{c} }
-    sub d($self) { $self->{d} }
-
     sub foo($self) {
-        $self->a . $self->b . $self->c . $self->d;
+        $self->{a} . $self->{b} . $self->{c} . $self->{d};
     }
 }

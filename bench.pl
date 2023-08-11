@@ -119,7 +119,6 @@ for my $row (@$rows) {
 }
 
 # ❯ perl -Ilib bench.pl
-#
 # versions:
 # Perl: 5.038000
 # Object::Pad: 0.79
@@ -129,22 +128,22 @@ for my $row (@$rows) {
 # Moose: 2.2206
 # Class::Tiny: 1.008
 # Object::Tiny: 1.09
-#
 # benchmarks:
 # Rate	Class::Accessor::Lite
 # 1542023/s	--	Class::Accessor::Lite
-# 1755429/s	14%	Moo
-# 1764431/s	14%	bless hashref and use subroutine signatures
-# 1799026/s	17%	Moose
-# 1854792/s	20%	Class::Tiny
-# 1890462/s	23%	bless arrayref and use subroutine signatures
-# 2143700/s	39%	bless hashref and NOT use subroutine signatures
+# 1787345/s	16%	Moo
+# 1787345/s	16%	Moose
+# 1803742/s	17%	Class::Tiny
 # 2143701/s	39%	Object::Tiny
-# 2254309/s	46%	bless arrayref and NOT use subroutine signatures
-# 2595484/s	68%	function and hash arguments and NOT use subroutine signatures
-# 2672341/s	73%	function and hash arguments and use subroutine signatures
-# 3709584/s	141%	Mouse
+# 2548621/s	65%	function and hash arguments and NOT use subroutine signatures
+# 2707833/s	76%	function and hash arguments and use subroutine signatures
+# 3744913/s	143%	Mouse
+# 4721290/s	206%	function and array arguments and use subroutine signatures
 # 4766254/s	209%	Object::Pad
-# 4812084/s	212%	function and array arguments and use subroutine signatures
-# 5625983/s	265%	function and array arguments and NOT use subroutine signatures
-# 6616614/s	329%	class feature
+# 5698783/s	270%	function and array arguments and NOT use subroutine signatures
+# 6612641/s	329%	class feature
+# 6616615/s	329%	bless hashref and use subroutine signatures
+# 6672756/s	333%	bless hashref and NOT use subroutine signatures
+# 7561845/s	390%	bless arrayref and NOT use subroutine signatures
+# 7561845/s	390%	bless arrayref and use subroutine signatures
+

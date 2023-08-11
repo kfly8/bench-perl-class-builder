@@ -6,12 +6,7 @@ package FooBlessArray {
         bless [ $args{a}, $args{b}, $args{c}, $args{d} ], $class;
     }
 
-    sub a($self) { $self->[0] }
-    sub b($self) { $self->[1] }
-    sub c($self) { $self->[2] }
-    sub d($self) { $self->[3] }
-
     sub foo($self) {
-        $self->a . $self->b . $self->c . $self->d;
+        $self->[0] . $self->[1] . $self->[2] . $self->[3];
     }
 }

@@ -6,13 +6,8 @@ package FooBlessArrayNoSig {
         bless [ $args{a}, $args{b}, $args{c}, $args{d} ], $class;
     }
 
-    sub a { $_[0]->[0] }
-    sub b { $_[0]->[1] }
-    sub c { $_[0]->[2] }
-    sub d { $_[0]->[3] }
-
     sub foo {
         my $self = shift;
-        $self->a . $self->b . $self->c . $self->d;
+        $self->[0] . $self->[1] . $self->[2] . $self->[3];
     }
 }

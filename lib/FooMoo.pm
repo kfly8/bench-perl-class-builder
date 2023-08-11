@@ -1,6 +1,6 @@
 use v5.38;
 
-package FooMoo{
+package FooMoo {
     use Moo;
 
     has a => (is => 'ro');

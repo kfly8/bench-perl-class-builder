@@ -2,10 +2,10 @@ use v5.38;
 use Object::Pad;
 
 class FooObjectPad {
-    field $a :param :reader;
-    field $b :param :reader;
-    field $c :param :reader;
-    field $d :param :reader;
+    field $a :param;
+    field $b :param;
+    field $c :param;
+    field $d :param;
 
     method foo() {
         $a . $b . $c . $d;
