@@ -30,57 +30,28 @@ for my $module (qw(
 say '----------';
 say 'benchmarks:';
 
+my $description_mapping   = {
+    FooFeatureClass      => 'class feature',
+    FooObjectPad         => 'Object::Pad',
+    FooClassAccessorLite => 'Class::Accessor::Lite',
+    FooMouse             => 'Mouse',
+    FooMoo               => 'Moo',
+    FooMoose             => 'Moose',
+    FooClassTiny         => 'Class::Tiny',
+    FooObjectTiny        => 'Object::Tiny',
+    FooBless             => 'bless hashref',
+    FooBlessArray        => 'bless arrayref',
+};
+
 my $rows = cmpthese(-1, {
-    'class feature' => sub {
-        state $f = FooFeatureClass->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'Object::Pad' => sub {
-        state $f = FooObjectPad->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'Class::Accessor::Lite' => sub {
-        state $f = FooClassAccessorLite->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'Mouse' => sub {
-        state $f = FooMouse->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'Moo' => sub {
-        state $f = FooMoo->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'Moose' => sub {
-        state $f = FooMoose->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'Class::Tiny' => sub {
-        state $f = FooClassTiny->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'Object::Tiny' => sub {
-        state $f = FooObjectTiny->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'bless hashref and use subroutine signatures' => sub {
-        state $f = FooBless->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
-    'bless arrayref and use subroutine signatures' => sub {
-        state $f = FooBlessArray->new(foo => 'foo!');
-        $f->foo for 1..100;
-    },
-
+    map {
+        my $klass = $_;
+        my $description = $description_mapping->{$klass};
+        $description => sub {
+            state $f = $klass->new(foo => 'foo!');
+            $f->foo for 1..100;
+        }
+    } keys %$description_mapping,
 }, 'none');
 
 my $header = $rows->[0];
@@ -95,7 +66,7 @@ for my $row (@$rows) {
         $row->[0]; # Name
 }
 
-#❯ perl -Ilib bench-field.pl
+# ❯ perl -Ilib bench-field.pl
 # versions:
 # Perl: 5.038000
 # Object::Pad: 0.79
@@ -108,13 +79,13 @@ for my $row (@$rows) {
 # ----------
 # benchmarks:
 # Rate	class feature
-# 80388/s	-36%	Object::Pad
-# 91167/s	-27%	Class::Accessor::Lite
-# 112733/s	-10%	Moo
-# 112734/s	-10%	Moose
-# 115924/s	-7%	bless hashref and use subroutine signatures
-# 117108/s	-6%	Class::Tiny
-# 122530/s	-2%	bless arrayref and use subroutine signatures
-# 124842/s	--	class feature
-# 143479/s	15%	Object::Tiny
-# 197283/s	58%	Mouse
+# 79644/s	-35%	Object::Pad
+# 91995/s	-25%	Class::Accessor::Lite
+# 111708/s	-9%	Moo
+# 113777/s	-7%	Moose
+# 116081/s	-5%	bless hashref
+# 117029/s	-4%	Class::Tiny
+# 120302/s	-2%	bless arrayref
+# 122530/s	--	class feature
+# 143479/s	17%	Object::Tiny
+# 206645/s	69%	Mouse
