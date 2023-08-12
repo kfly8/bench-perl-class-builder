@@ -1,3 +1,39 @@
+=head1 DESCRIPTION
+
+Compare size of objects.
+
+=head1 SYNOPSIS
+
+    % carmel install
+    % carmel exec -- perl -Ilib bench-size.pl
+
+=head1 RESULT
+
+    total_size	size_rate
+    135.8 KB	--	class feature
+    148.5 KB	9.3%	bless arrayref
+    171.9 KB	26.6%	Object::Pad
+    218.8 KB	61.1%	Object::Tiny
+    218.8 KB	61.1%	Moo
+    218.8 KB	61.1%	Class::Tiny
+    218.8 KB	61.1%	Mouse
+    218.8 KB	61.1%	Class::Accessor::Lite
+    218.8 KB	61.1%	bless hashref
+    257.9 KB	89.9%	Moose
+
+
+    versions:
+    Perl: 5.038000
+    Object::Pad: 0.79
+    Class::Accessor::Lite: 0.08
+    Mouse: v2.5.10
+    Moo: 2.005004
+    Moose: 2.2206
+    Class::Tiny: 1.008
+    Object::Tiny: 1.09
+
+=cut
+
 use v5.38;
 use Devel::Size qw(total_size);
 
@@ -11,24 +47,6 @@ use FooClassTiny;
 use FooObjectTiny;
 use FooBless;
 use FooBlessArray;
-
-say 'versions:';
-say "Perl: $]";
-
-for my $module (qw(
-        Object::Pad
-        Class::Accessor::Lite
-        Mouse
-        Moo
-        Moose
-        Class::Tiny
-        Object::Tiny
-    )) {
-    say "$module: ", $module->VERSION;
-}
-
-say '----------';
-say 'compare data sizes:';
 
 my $description_mapping   = {
     FooFeatureClass      => 'class feature',
@@ -74,26 +92,20 @@ for my $report (@report) {
     say join("\t", @$report);
 }
 
-# ❯ perl -Ilib bench-size.pl
-# versions:
-# Perl: 5.038000
-# Object::Pad: 0.79
-# Class::Accessor::Lite: 0.08
-# Mouse: v2.5.10
-# Moo: 2.005004
-# Moose: 2.2206
-# Class::Tiny: 1.008
-# Object::Tiny: 1.09
-# ----------
-# compare data sizes:
-# total_size	size_rate
-# 135.8 KB	--	class feature
-# 148.5 KB	9.3%	bless arrayref
-# 171.9 KB	26.6%	Object::Pad
-# 218.8 KB	61.1%	Class::Tiny
-# 218.8 KB	61.1%	bless hashref
-# 218.8 KB	61.1%	Mouse
-# 218.8 KB	61.1%	Class::Accessor::Lite
-# 218.8 KB	61.1%	Object::Tiny
-# 218.8 KB	61.1%	Moo
-# 257.9 KB	89.9%	Moose
+say "\n";
+say 'versions:';
+say "Perl: $]";
+
+for my $module (qw(
+        Object::Pad
+        Class::Accessor::Lite
+        Mouse
+        Moo
+        Moose
+        Class::Tiny
+        Object::Tiny
+    )) {
+    say "$module: ", $module->VERSION;
+}
+
+
