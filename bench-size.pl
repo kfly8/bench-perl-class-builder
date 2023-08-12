@@ -24,39 +24,14 @@ Compare size of objects.
 =cut
 
 use v5.38;
-use Devel::Size qw(total_size);
 use Foo;
 
-my $title_mapping = $Foo::TITLE_MAPPING;
-
-my %result;
-for my $klass (keys %$title_mapping) {
-    my $title = $title_mapping->{$klass};
-
-    # create many objects
-    my @list = map { $klass->new(foo => 'foo' . $_) } 1 .. 1000;
-    my $total_size = total_size(\@list);
-
-    $result{$title} = $total_size;
+# This logic is creaing a list consists of many objects.
+sub create_main_logic_coderef($benchmark_class) {
+    return sub {
+        my @list = map { $benchmark_class->new(foo => 'foo' . $_) } 1 .. 1000;
+        return \@list;
+    }
 }
 
-my ($size_of_feature_class) = map { $_ =~ /^class feature/ ? ($result{$_}) : ()  } keys %result;
-
-my @report;
-for my $title (sort { $result{$a} <=> $result{$b} } keys %result) {
-    my $total_size = $result{$title};
-    my $readable_size = sprintf("%.1f KB", $total_size / 1024);
-
-    my $size_rate = (($total_size - $size_of_feature_class) / $size_of_feature_class) * 100;
-    my $readable_size_rate = $size_rate == 0 ? '--'
-                           : $size_rate <  0 ? sprintf('-%.1f%%', $size_rate)
-                           :                   sprintf('%.1f%%', $size_rate);
-
-    push @report => [ $readable_size, $readable_size_rate, $title ];
-}
-
-say join("\t", 'Size', 'Compare', 'Title');
-for my $report (@report) {
-    say join("\t", @$report);
-}
-
+Foo::run_memory_consumption_benchmark(\&create_main_logic_coderef);

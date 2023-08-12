@@ -24,33 +24,15 @@ Benchmark of object constructor.
 =cut
 
 use v5.38;
-use Benchmark qw(:all);
 use Foo;
 
-my $title_mapping = $Foo::TITLE_MAPPING;
-
-my $rows = cmpthese(-1, {
-    map {
-        my $klass = $_;
-        my $title = $title_mapping->{$klass};
-        $title => sub {
-            for (1..1000) {
-                my $f = $klass->new(foo => 'foo!' . $_);
-            }
+# This logic is creaing many objects.
+sub create_main_logic_coderef($benchmark_class) {
+    return sub {
+        for (1..1000) {
+            my $f = $benchmark_class->new(foo => 'foo' . $_);
         }
-    } keys %$title_mapping,
-}, 'none');
-
-my $header = shift @$rows;
-
-# find the index of the 'class feature' row
-my ($x) = map { $header->[$_] =~ /^class feature/ ? ($_) : ()  } 0 .. $#$header;
-
-say join "\t", qw(Rate Compare Title);
-for my $row (@$rows) {
-    say join "\t",
-        $row->[1], # Rate
-        $row->[$x], # compare 'class feature'
-        $row->[0]; # Name
+    }
 }
 
+Foo::run_benchmark(\&create_main_logic_coderef);
