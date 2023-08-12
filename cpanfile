@@ -6,4 +6,4 @@ requires 'Moose';
 requires 'Class::Tiny';
 requires 'Object::Tiny';
 
-requires 'Devel::Size::Report';
+requires 'Devel::Size';
