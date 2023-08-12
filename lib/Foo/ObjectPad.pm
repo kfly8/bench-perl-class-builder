@@ -1,6 +1,6 @@
 use v5.38;
 use Object::Pad;
 
-class FooObjectPad {
+class Foo::ObjectPad {
     field $foo :param :reader;
 };

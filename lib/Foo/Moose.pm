@@ -1,7 +1,7 @@
 use v5.38;
 
-package FooMouse {
-    use Mouse;
+package Foo::Moose {
+    use Moose;
 
     has foo => (is => 'ro');
 }

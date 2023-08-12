@@ -1,5 +1,5 @@
 use v5.38;
 
-package FooObjectTiny {
+package Foo::ObjectTiny {
     use Object::Tiny qw(foo);
 }

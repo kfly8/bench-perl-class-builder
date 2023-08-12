@@ -1,6 +1,6 @@
 use v5.38;
 
-package FooBless {
+package Foo::Bless {
     sub new {
         my ($class, %args) = @_;
         bless \%args, $class;

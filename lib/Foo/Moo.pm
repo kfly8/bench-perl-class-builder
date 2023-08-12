@@ -1,6 +1,6 @@
 use v5.38;
 
-package FooMoo {
+package Foo::Moo {
     use Moo;
 
     has foo => (is => 'ro');

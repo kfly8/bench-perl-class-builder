@@ -1,6 +1,6 @@
 use v5.38;
 
-package FooBlessArray {
+package Foo::BlessArray {
     sub new {
         my ($class, %args) = @_;
         bless [ $args{foo} ], $class;

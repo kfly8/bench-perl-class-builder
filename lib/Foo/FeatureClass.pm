@@ -1,7 +1,7 @@
 use v5.38;
 use experimental qw(class);
 
-class FooFeatureClass {
+class Foo::FeatureClass {
     field $foo :param;
 
     method foo() { $foo }
