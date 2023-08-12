@@ -16,16 +16,16 @@ package Foo {
     use Foo::BlessArray;
 
     my $TITLE_MAPPING = {
-        'Foo::FeatureClass'      => sprintf('class feature (perl: %s)', $]),
-        'Foo::ObjectPad'         => sprintf('Object::Pad@%s', Object::Pad->VERSION),
-        'Foo::ClassAccessorLite' => sprintf('Class::Accessor::Lite@%s', Class::Accessor::Lite->VERSION),
-        'Foo::Mouse'             => sprintf('Mouse@%s', Mouse->VERSION),
-        'Foo::Moo'               => sprintf('Moo@%s', Moo->VERSION),
-        'Foo::Moose'             => sprintf('Moose@%s', Moose->VERSION),
-        'Foo::ClassTiny'         => sprintf('Class::Tiny@%s', Class::Tiny->VERSION),
-        'Foo::ObjectTiny'        => sprintf('Object::Tiny@%s', Object::Tiny->VERSION),
-        'Foo::Bless'             => 'bless hashref',
-        'Foo::BlessArray'        => 'bless arrayref',
+        'Foo::FeatureClass'      => sprintf('`class feature (perl: %s)`', $]),
+        'Foo::ObjectPad'         => sprintf('`Object::Pad@%s`', Object::Pad->VERSION),
+        'Foo::ClassAccessorLite' => sprintf('`Class::Accessor::Lite@%s`', Class::Accessor::Lite->VERSION),
+        'Foo::Mouse'             => sprintf('`Mouse@%s`', Mouse->VERSION),
+        'Foo::Moo'               => sprintf('`Moo@%s`', Moo->VERSION),
+        'Foo::Moose'             => sprintf('`Moose@%s`', Moose->VERSION),
+        'Foo::ClassTiny'         => sprintf('`Class::Tiny@%s`', Class::Tiny->VERSION),
+        'Foo::ObjectTiny'        => sprintf('`Object::Tiny@%s`', Object::Tiny->VERSION),
+        'Foo::Bless'             => '`bless hashref`',
+        'Foo::BlessArray'        => '`bless arrayref`',
     };
 
     sub run_benchmark($create_main_logic_coderef) {
@@ -42,7 +42,7 @@ package Foo {
         my $header = shift @$rows;
 
         # find the index of the 'class feature' row
-        my ($x) = map { $header->[$_] =~ /^class feature/ ? ($_) : ()  } 0 .. $#$header;
+        my ($x) = map { $header->[$_] =~ /class feature/ ? ($_) : ()  } 0 .. $#$header;
 
         say join "\t", qw(Rate Compare Title);
         for my $row (@$rows) {
@@ -67,7 +67,7 @@ package Foo {
             $result{$title} = $total_size;
         }
 
-        my ($size_of_feature_class) = map { $_ =~ /^class feature/ ? ($result{$_}) : ()  } keys %result;
+        my ($size_of_feature_class) = map { $_ =~ /class feature/ ? ($result{$_}) : ()  } keys %result;
 
         my @report;
         for my $title (sort { $result{$a} <=> $result{$b} } keys %result) {
