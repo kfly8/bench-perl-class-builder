@@ -83,18 +83,16 @@ my $rows = cmpthese(-1, {
 
 }, 'none');
 
-my $header = shift @$rows;
+my $header = $rows->[0];
 
 # find the index of the 'class feature' row
 my ($x) = map { $header->[$_] eq 'class feature' ? ($_) : ()  } 0 .. $#$header;
 
-say join "\t",
-    $header->[1], # Rate
-    $header->[$x], # compare 'class feature'
-    $header->[0]; # Name
-
 for my $row (@$rows) {
-    say join "\t", $row->[1], $row->[$x], $row->[0];
+    say join "\t",
+        $row->[1], # Rate
+        $row->[$x], # compare 'class feature'
+        $row->[0]; # Name
 }
 
 #❯ perl -Ilib bench-field.pl
