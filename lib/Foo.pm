@@ -9,6 +9,7 @@ package Foo {
     use Foo::ClassAccessorLite;
     use Foo::Mouse;
     use Foo::Moose;
+    use Foo::MooseXS;
     use Foo::Moo;
     use Foo::ClassTiny;
     use Foo::ObjectTiny;
@@ -22,6 +23,7 @@ package Foo {
         'Foo::Mouse'             => sprintf('`Mouse@%s`', Mouse->VERSION),
         'Foo::Moo'               => sprintf('`Moo@%s`', Moo->VERSION),
         'Foo::Moose'             => sprintf('`Moose@%s`', Moose->VERSION),
+        'Foo::MooseXS'           => sprintf('`Moose@%s (XSAccessor)`', Moose->VERSION),
         'Foo::ClassTiny'         => sprintf('`Class::Tiny@%s`', Class::Tiny->VERSION),
         'Foo::ObjectTiny'        => sprintf('`Object::Tiny@%s`', Object::Tiny->VERSION),
         'Foo::Bless'             => '`bless hashref`',
@@ -88,3 +90,4 @@ package Foo {
         }
     }
 }
+

@@ -1,5 +1,7 @@
 use v5.38;
 
+$ENV{MOO_XS_DISABLE} = 1;
+
 package Foo::Moo {
     use Moo;
 
@@ -7,4 +9,6 @@ package Foo::Moo {
     has bar => (is => 'ro');
     has baz => (is => 'ro');
 }
+
+undef $ENV{MOO_XS_DISABLE};
 
