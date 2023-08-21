@@ -11,6 +11,7 @@ package Foo {
     use Foo::Moose;
     use Foo::MooseXS;
     use Foo::Moo;
+    use Foo::MooXS;
     use Foo::ClassTiny;
     use Foo::ObjectTiny;
     use Foo::Bless;
@@ -22,6 +23,7 @@ package Foo {
         'Foo::ClassAccessorLite' => sprintf('`Class::Accessor::Lite@%s`', Class::Accessor::Lite->VERSION),
         'Foo::Mouse'             => sprintf('`Mouse@%s`', Mouse->VERSION),
         'Foo::Moo'               => sprintf('`Moo@%s`', Moo->VERSION),
+        'Foo::MooXS'             => sprintf('`Moo@%s (XSConstructor + XSAccessor)`', Moo->VERSION),
         'Foo::Moose'             => sprintf('`Moose@%s`', Moose->VERSION),
         'Foo::MooseXS'           => sprintf('`Moose@%s (XSAccessor)`', Moose->VERSION),
         'Foo::ClassTiny'         => sprintf('`Class::Tiny@%s`', Class::Tiny->VERSION),
