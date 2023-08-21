@@ -29,8 +29,13 @@ use Foo;
 # This logic is accessing to object field many times.
 sub create_main_logic_coderef($benchmark_class) {
     return sub {
-        state $object = $benchmark_class->new(foo => 'foo!');
-        $object->foo for 1..100;
+        state $object = $benchmark_class->new(
+            foo => 'foo!',
+            bar => 'bar?',
+            baz => 'baz.',
+        );
+        $object->foo for 1..50;
+        $object->baz for 1..50;
     }
 }
 

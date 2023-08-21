@@ -29,9 +29,16 @@ use Foo;
 # This logic is creaing a list consists of many objects.
 sub create_main_logic_coderef($benchmark_class) {
     return sub {
-        my @list = map { $benchmark_class->new(foo => 'foo' . $_) } 1 .. 1000;
+        my @list = map {
+            $benchmark_class->new(
+                foo => 'foo' . $_,
+                bar => 'bar' . $_,
+                baz => 'baz' . $_,
+            )
+        } 1 .. 1000;
         return \@list;
     }
 }
 
 Foo::run_memory_consumption_benchmark(\&create_main_logic_coderef);
+

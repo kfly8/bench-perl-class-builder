@@ -9,4 +9,13 @@ package Foo::Bless {
     sub foo($self) {
         $self->{foo}
     }
+
+    sub bar($self) {
+        $self->{bar}
+    }
+
+    sub baz($self) {
+        $self->{baz}
+    }
 }
+
