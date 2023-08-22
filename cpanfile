@@ -5,5 +5,8 @@ requires 'Moo';
 requires 'Moose';
 requires 'Class::Tiny';
 requires 'Object::Tiny';
+requires 'MooseX::XSAccessor';
+requires 'MooX::XSConstructor';
 
 requires 'Devel::Size';
+
