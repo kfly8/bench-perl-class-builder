@@ -43,35 +43,34 @@ This result were calculated using [bench-size.pl](https://github.com/kfly8/bench
 
 ## Benchmark object constructors
 
-| Rate   | Compare | Title                          |
-| ---    | ---     | ---                            |
-| 86.1/s | -96%    | `Moose@2.2206`                   |
-| 763/s  | -67%    | `Class::Tiny@1.008`              |
-| 1309/s | -44%    | `Object::Pad@0.79`               |
-| 1395/s | -40%    | `Moo@2.005004`                   |
-| 1896/s | -18%    | `Mouse@v2.5.10`                  |
-| 2262/s | -3%     | `bless arrayref`                 |
-| 2327/s | --      | `class feature (perl: 5.038000)` |
-| 2560/s | 10%     | `Class::Accessor::Lite@0.08`     |
-| 2595/s | 12%     | `bless hashref`                  |
-| 2715/s | 17%     | `Object::Tiny@1.09`              |
+| Rate   | Compare | Title                            |
+| ---    | ---     | ---                              |
+| 545/s  | -57%    | `Class::Tiny@1.008`              |
+| 739/s  | -42%    | `Moose@2.2206`                   |
+| 777/s  | -39%    | `Moo@2.005004`                   |
+| 807/s  | -37%    | `Object::Pad@0.79`               |
+| 977/s  | -24%    | `Mouse@v2.5.10`                  |
+| 1280/s | --      | `class feature (perl: 5.038000)` |
+| 1321/s | 3%      | `bless arrayref`                 |
+| 1410/s | 10%     | `Class::Accessor::Lite@0.08`     |
+| 1493/s | 17%     | `Object::Tiny@1.09`              |
+| 1534/s | 20%     | `bless hashref`                  |
 
 This result were calculated using [bench-new.pl](https://github.com/kfly8/bench-perl-class-builder/blob/main/bench-new.pl).
 
 ## Benchmark access to object fields
 
-| Rate     | Compare | Title                          |
-| ---      | ---     | ---                            |
-| 79644/s  | -35%    | `Object::Pad@0.79`               |
-| 92839/s  | -24%    | `Class::Accessor::Lite@0.08`     |
-| 113778/s | -7%     | `Moo@2.005004`                   |
-| 114688/s | -6%     | `Moose@2.2206`                   |
-| 115924/s | -5%     | `bless hashref`                  |
-| 118154/s | -4%     | `Class::Tiny@1.008`              |
-| 120302/s | -2%     | `bless arrayref`                 |
-| 122530/s | --      | `class feature (perl: 5.038000)` |
-| 142175/s | 16%     | `Object::Tiny@1.09`              |
-| 208523/s | 70%     | `Mouse@v2.5.10`                  |
-
+| Rate     | Compare | Title                            |
+| ---      | ---     | ---                              |
+| 85163/s  | -40%    | `Object::Pad@0.79`               |
+| 103322/s | -27%    | `Class::Accessor::Lite@0.08`     |
+| 117507/s | -17%    | `Class::Tiny@1.008`              |
+| 118154/s | -17%    | `bless hashref`                  |
+| 120250/s | -15%    | `Moose@2.2206`                   |
+| 130326/s | -8%     | `Moo@2.005004`                   |
+| 132332/s | -7%     | `bless arrayref`                 |
+| 141835/s | --      | `class feature (perl: 5.038000)` |
+| 159288/s | 12%     | `Object::Tiny@1.09`              |
+| 229681/s | 62%     | `Mouse@v2.5.10`                  |
 
 This result were calculated using [bench-field.pl](https://github.com/kfly8/bench-perl-class-builder/blob/main/bench-field.pl).

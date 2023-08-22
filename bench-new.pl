@@ -9,17 +9,18 @@ Benchmark of object constructor.
 
 =head1 RESULT
 
+    ❯ perl -Ilib bench-new.pl
     Rate	Compare	Title
-    86.1/s	-96%	Moose@2.2206
-    763/s	-67%	Class::Tiny@1.008
-    1309/s	-44%	Object::Pad@0.79
-    1395/s	-40%	Moo@2.005004
-    1896/s	-18%	Mouse@v2.5.10
-    2262/s	-3%	bless arrayref
-    2327/s	--	class feature (perl: 5.038000)
-    2560/s	10%	Class::Accessor::Lite@0.08
-    2595/s	12%	bless hashref
-    2715/s	17%	Object::Tiny@1.09
+    545/s	-57%	`Class::Tiny@1.008`
+    739/s	-42%	`Moose@2.2206`
+    777/s	-39%	`Moo@2.005004`
+    807/s	-37%	`Object::Pad@0.79`
+    977/s	-24%	`Mouse@v2.5.10`
+    1280/s	--	`class feature (perl: 5.038000)`
+    1321/s	3%	`bless arrayref`
+    1410/s	10%	`Class::Accessor::Lite@0.08`
+    1493/s	17%	`Object::Tiny@1.09`
+    1534/s	20%	`bless hashref`
 
 =cut
 
