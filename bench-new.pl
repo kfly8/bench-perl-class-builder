@@ -30,9 +30,14 @@ use Foo;
 sub create_main_logic_coderef($benchmark_class) {
     return sub {
         for (1..1000) {
-            my $f = $benchmark_class->new(foo => 'foo' . $_);
+            my $f = $benchmark_class->new(
+                foo => 'foo' . $_,
+                bar => 'bar' . $_,
+                baz => 'baz' . $_,
+            );
         }
     }
 }
 
 Foo::run_benchmark(\&create_main_logic_coderef);
+
