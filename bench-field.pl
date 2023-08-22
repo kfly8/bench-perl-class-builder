@@ -10,16 +10,18 @@ Benchmark of object field access.
 =head1 RESULT
 
     Rate	Compare	Title
-    85163/s	-40%	`Object::Pad@0.79`
-    103322/s	-27%	`Class::Accessor::Lite@0.08`
-    117507/s	-17%	`Class::Tiny@1.008`
-    118154/s	-17%	`bless hashref`
-    120250/s	-15%	`Moose@2.2206`
-    130326/s	-8%	`Moo@2.005004`
-    132332/s	-7%	`bless arrayref`
-    141835/s	--	`class feature (perl: 5.038000)`
-    159288/s	12%	`Object::Tiny@1.09`
-    229681/s	62%	`Mouse@v2.5.10`
+    81146/s	-41%	`Object::Pad@0.79`
+    97206/s	-29%	`Class::Accessor::Lite@0.08`
+    111203/s	-19%	`Moose@2.2206`
+    117507/s	-14%	`Moo@2.005004`
+    119218/s	-13%	`bless hashref`
+    121662/s	-11%	`bless arrayref`
+    130453/s	-4%	`Class::Tiny@1.008`
+    136532/s	--	`class feature (perl: 5.038000)`
+    165414/s	21%	`Object::Tiny@1.09`
+    214369/s	57%	`Moose@2.2206 (XSAccessor)`
+    229681/s	68%	`Mouse@v2.5.10`
+    273066/s	100%	`Moo@2.005004 (XSConstructor + XSAccessor)`
 
 =cut
 
