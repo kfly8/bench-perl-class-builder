@@ -1,4 +1,4 @@
-use v5.38;
+use v5.40;
 
 BEGIN {
     use Method::Generate::Accessor;

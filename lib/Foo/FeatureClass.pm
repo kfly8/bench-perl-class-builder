@@ -1,13 +1,9 @@
-use v5.38;
+use v5.40;
 use experimental qw(class);
 
 class Foo::FeatureClass {
-    field $foo :param;
-    field $bar :param;
-    field $baz :param;
-
-    method foo() { $foo }
-    method bar() { $bar }
-    method baz() { $baz }
+    field $foo :param :reader;
+    field $bar :param :reader;
+    field $baz :param :reader;
 };
 

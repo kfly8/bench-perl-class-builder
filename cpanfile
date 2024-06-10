@@ -1,3 +1,5 @@
+requires 'perl', '5.040000';
+
 requires 'Object::Pad';
 requires 'Class::Accessor::Lite';
 requires 'Mouse';
