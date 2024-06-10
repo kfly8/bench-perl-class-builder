@@ -25,7 +25,7 @@ Benchmark of object field access.
 
 =cut
 
-use v5.38;
+use v5.40;
 use Foo;
 
 # This logic is accessing to object field many times.

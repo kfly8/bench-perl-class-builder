@@ -25,7 +25,7 @@ Compare size of objects.
 
 =cut
 
-use v5.38;
+use v5.40;
 use Foo;
 
 # This logic is creaing a list consists of many objects.

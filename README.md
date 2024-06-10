@@ -15,7 +15,7 @@ In the following execution environment, the class feature had the best memory ef
 ```shell
   ❯ inxi -SCm
   System:
-    Host: kfly8.local Kernel: 22.3.0 arch: arm64 bits: 64 Console: s004 OS: Darwin 22.3.0
+    Host: kfly8.local Kernel: 23.1.0 arch: arm64 bits: 64 Console: s006 OS: Darwin 23.1.0
   Memory:
     System RAM: total: N/A available: N/A used: N/A
     RAM Report: missing: Required tool dmidecode not installed. Check --recommends
@@ -28,18 +28,18 @@ In the following execution environment, the class feature had the best memory ef
 
 | Size     | Compare | Title                                       |
 | ---      | ---     | ---                                         |
-| 135.8 KB | --      | `class feature (perl: 5.038000)`            |
-| 257.9 KB | 89.9%   | `bless arrayref`                            |
-| 265.7 KB | 95.6%   | `Object::Pad@0.79`                          |
-| 359.5 KB | 164.8%  | `bless hashref`                             |
-| 359.5 KB | 164.8%  | `Moo@2.005004`                              |
-| 359.5 KB | 164.8%  | `Class::Accessor::Lite@0.08`                |
-| 359.5 KB | 164.8%  | `Moose@2.2206`                              |
-| 359.5 KB | 164.8%  | `Moo@2.005004 (XSConstructor + XSAccessor)` |
-| 359.5 KB | 164.8%  | `Object::Tiny@1.09`                         |
-| 359.5 KB | 164.8%  | `Mouse@v2.5.10`                             |
-| 359.5 KB | 164.8%  | `Moose@2.2206 (XSAccessor)`                 |
-| 359.5 KB | 164.8%  | `Class::Tiny@1.008`                         |
+| 135.8 KB | --      | `class feature (perl: 5.040000)`            |
+| 257.9 KB | 89.90%  | `bless arrayref`                            |
+| 265.7 KB | 95.60%  | `Object::Pad@0.808`                         |
+| 359.5 KB | 164.80% | `Mouse@v2.5.10`                             |
+| 359.5 KB | 164.80% | `Moo@2.005005`                              |
+| 359.5 KB | 164.80% | `Moose@2.2207 (XSAccessor)`                 |
+| 359.5 KB | 164.80% | `Object::Tiny@1.09`                         |
+| 359.5 KB | 164.80% | `Moo@2.005005 (XSConstructor + XSAccessor)` |
+| 359.5 KB | 164.80% | `Class::Tiny@1.008`                         |
+| 359.5 KB | 164.80% | `Moose@2.2207`                              |
+| 359.5 KB | 164.80% | `bless hashref`                             |
+| 359.5 KB | 164.80% | `Class::Accessor::Lite@0.08`                |
 
 This result were calculated using [bench-size.pl](https://github.com/kfly8/bench-perl-class-builder/blob/main/bench-size.pl).
 
@@ -47,18 +47,18 @@ This result were calculated using [bench-size.pl](https://github.com/kfly8/bench
 
 | Rate   | Compare | Title                                       |
 | ---    | ---     | ---                                         |
-| 473/s  | -61%    | `Class::Tiny@1.008`                         |
-| 636/s  | -47%    | `Moose@2.2206`                              |
-| 675/s  | -44%    | `Moose@2.2206 (XSAccessor)`                 |
-| 720/s  | -40%    | `Object::Pad@0.79`                          |
-| 777/s  | -35%    | `Moo@2.005004`                              |
-| 1053/s | -12%    | `Moo@2.005004 (XSConstructor + XSAccessor)` |
-| 1141/s | -5%     | `Mouse@v2.5.10`                             |
-| 1189/s | -1%     | `bless arrayref`                            |
-| 1199/s | --      | `class feature (perl: 5.038000)`            |
-| 1658/s | 38%     | `bless hashref`                             |
-| 1662/s | 39%     | `Class::Accessor::Lite@0.08`                |
-| 1690/s | 41%     | `Object::Tiny@1.09`                         |
+| 550/s  | -59%    | `Class::Tiny@1.008`                         |
+| 752/s  | -44%    | `Moose@2.2207`                              |
+| 752/s  | -44%    | `Moose@2.2207 (XSAccessor)`                 |
+| 931/s  | -30%    | `Moo@2.005005`                              |
+| 1081/s | -19%    | `Moo@2.005005 (XSConstructor + XSAccessor)` |
+| 1152/s | -14%    | `Mouse@v2.5.10`                             |
+| 1195/s | -10%    | `Object::Pad@0.808`                         |
+| 1334/s | --      | `class feature (perl: 5.040000)`            |
+| 1347/s | 1%      | `bless arrayref`                            |
+| 1674/s | 25%     | `bless hashref`                             |
+| 1690/s | 27%     | `Class::Accessor::Lite@0.08`                |
+| 1729/s | 30%     | `Object::Tiny@1.09`                         |
 
 This result were calculated using [bench-new.pl](https://github.com/kfly8/bench-perl-class-builder/blob/main/bench-new.pl).
 
@@ -66,17 +66,17 @@ This result were calculated using [bench-new.pl](https://github.com/kfly8/bench-
 
 | Rate     | Compare | Title                                       |
 | ---      | ---     | ---                                         |
-| 81146/s  | -41%    | `Object::Pad@0.79`                          |
-| 97206/s  | -29%    | `Class::Accessor::Lite@0.08`                |
-| 111203/s | -19%    | `Moose@2.2206`                              |
-| 117507/s | -14%    | `Moo@2.005004`                              |
-| 119218/s | -13%    | `bless hashref`                             |
-| 121662/s | -11%    | `bless arrayref`                            |
-| 130453/s | -4%     | `Class::Tiny@1.008`                         |
-| 136532/s | --      | `class feature (perl: 5.038000)`            |
-| 165414/s | 21%     | `Object::Tiny@1.09`                         |
-| 214369/s | 57%     | `Moose@2.2206 (XSAccessor)`                 |
-| 229681/s | 68%     | `Mouse@v2.5.10`                             |
-| 273066/s | 100%    | `Moo@2.005004 (XSConstructor + XSAccessor)` |
+| 93699/s  | -26%    | `Object::Pad@0.808`                         |
+| 100485/s | -20%    | `Class::Accessor::Lite@0.08`                |
+| 120302/s | -5%     | `Moo@2.005005`                              |
+| 123675/s | -2%     | `Class::Tiny@1.008`                         |
+| 124842/s | -1%     | `Moose@2.2207`                              |
+| 126030/s | --      | `class feature (perl: 5.040000)`            |
+| 127242/s | 1%      | `bless hashref`                             |
+| 137846/s | 9%      | `bless arrayref`                            |
+| 156038/s | 24%     | `Object::Tiny@1.09`                         |
+| 223418/s | 77%     | `Moose@2.2207 (XSAccessor)`                 |
+| 236307/s | 87%     | `Mouse@v2.5.10`                             |
+| 267962/s | 113%    | `Moo@2.005005 (XSConstructor + XSAccessor)` |
 
 This result were calculated using [bench-field.pl](https://github.com/kfly8/bench-perl-class-builder/blob/main/bench-field.pl).

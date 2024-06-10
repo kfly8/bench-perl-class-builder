@@ -1,4 +1,4 @@
-use v5.38;
+use v5.40;
 
 package Foo::ClassAccessorLite {
     use Class::Accessor::Lite (
