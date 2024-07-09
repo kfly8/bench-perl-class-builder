@@ -1,7 +1,7 @@
 
 ## What's this?
 
-[In Perl 5.38, the class feature was integrated into the core](https://metacpan.org/release/RJBS/perl-5.38.0/view/pod/perldelta.pod), so I compared it with many class builders. Ovid, who is main designer of new class feature, blogged the follwing thing:
+[In Perl 5.38, the class feature was integrated into the core](https://metacpan.org/release/RJBS/perl-5.38.0/view/pod/perldelta.pod), so I compared it with many class builders. Ovid, who is main designer of new class feature, blogged the following:
 > Note that it’s not taking anything away from Perl; it’s adding a core object system for better memory consumption, performance, and elegance.
 > ( https://ovid.github.io/articles/corinna-in-the-perl-core.html )
 
