@@ -9,6 +9,7 @@ requires 'Class::Tiny';
 requires 'Object::Tiny';
 requires 'MooseX::XSAccessor';
 requires 'MooX::XSConstructor';
+requires 'Const::Fast';
 
 requires 'Devel::Size';
 
