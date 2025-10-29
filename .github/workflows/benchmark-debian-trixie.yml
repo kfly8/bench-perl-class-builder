@@ -30,9 +30,9 @@ jobs:
       # Install missing Perl Libraries
       - name: Install Perl Libraries
         run: |
-          sudo apt-get update
-          sudo apt-get -y install perlbrew cpanminus liblocal-lib-perl libdevel-size-perl
-          sudo apt-get -y install libobject-pad-perl libclass-accessor-lite-perl libmouse-perl \
+          apt-get update
+          apt-get -y install perlbrew cpanminus liblocal-lib-perl libdevel-size-perl
+          apt-get -y install libobject-pad-perl libclass-accessor-lite-perl libmouse-perl \
             libmoo-perl libmoose-perl libclass-tiny-perl libobject-tiny-perl \
             libmoosex-xsaccessor-perl libmoox-xsconstructor-perl \            
         
