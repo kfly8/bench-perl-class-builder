@@ -1,21 +1,34 @@
 use v5.40;
 
 package Foo::Bless {
+
     sub new {
-        my ($class, %args) = @_;
+        my ( $class, %args ) = @_;
         bless \%args, $class;
     }
 
-    sub foo($self) {
-        $self->{foo}
+    sub foo {
+        $_[0]->{foo};
     }
 
-    sub bar($self) {
-        $self->{bar}
+    sub set_foo {
+        $_[0]->{foo} = $_[1];
     }
 
-    sub baz($self) {
-        $self->{baz}
+    sub bar {
+        $_[0]->{bar};
+    }
+
+    sub set_bar {
+        $_[0]->{bar} = $_[1];
+    }
+
+    sub baz {
+        $_[0]->{baz};
+    }
+
+    sub set_baz {
+        $_[0]->{baz} = $_[1];
     }
 }
 

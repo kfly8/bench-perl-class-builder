@@ -9,8 +9,8 @@ package Foo::MooXS {
     use Moo;
     use MooX::XSConstructor;
 
-    has foo => (is => 'ro');
-    has bar => (is => 'ro');
-    has baz => (is => 'ro');
+    has foo => (is => 'rw');
+    has bar => (is => 'rw');
+    has baz => (is => 'rw');
 }
 

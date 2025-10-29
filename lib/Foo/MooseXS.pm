@@ -4,9 +4,9 @@ package Foo::MooseXS {
     use Moose;
     use MooseX::XSAccessor;
 
-    has foo => (is => 'ro');
-    has bar => (is => 'ro');
-    has baz => (is => 'ro');
+    has foo => (is => 'rw');
+    has bar => (is => 'rw');
+    has baz => (is => 'rw');
 
     __PACKAGE__->meta->make_immutable;
 }
