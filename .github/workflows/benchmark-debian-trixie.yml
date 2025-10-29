@@ -43,6 +43,7 @@ jobs:
       # Install missing Perl Libraries
       - name: Install Perl Libraries from cpanfile
         run: |
+          cpanm --local-lib=~/perl5 local::lib
           eval $(perl -Mlocal::lib -I ~/perl5/lib/perl5/)
           cpanm -n --installdeps .         
 
