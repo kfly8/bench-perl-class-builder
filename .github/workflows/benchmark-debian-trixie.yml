@@ -1,0 +1,57 @@
+name: Benchmark on Debian Trixie
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+     branches:    
+      - main  
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  # Label of the container job
+  debian-testing:
+    # Containers must run in Linux based operating systems
+    runs-on: ubuntu-24.04
+    # Docker Hub image that `debian-testing` executes in
+    container: perl:5.40.3-trixie
+
+    steps:
+       # List all installed Perl Libraries
+      - name: List all installed Perl Libraries
+        run: |
+          echo "* Operating System:" && cat /etc/os-release
+          dpkg --get-selections | grep -i perl | sort
+          echo "* Perl Version:"
+          perl --version
+        
+      # Install missing Perl Libraries
+      - name: Install Perl Libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install perlbrew cpanminus liblocal-lib-perl libdevel-size-perl
+          sudo apt-get -y install libobject-pad-perl libclass-accessor-lite-perl libmouse-perl \
+            libmoo-perl libmoose-perl libclass-tiny-perl libobject-tiny-perl \
+            libmoosex-xsaccessor-perl libmoox-xsconstructor-perl \            
+        
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: actions/checkout@v2
+          
+      # Install missing Perl Libraries
+      - name: Install Perl Libraries from cpanfile
+        run: |
+          eval $(perl -Mlocal::lib -I ~/perl5/lib/perl5/)
+          cpanm -n --installdeps .         
+
+      - name: Run benchmarks
+        run: |
+          eval $(perl -Mlocal::lib -I ~/perl5/lib/perl5/)
+          echo "* Benchmark Object Creation:"
+          perl -Ilib bench-new.pl
+          echo "* Benchmark Field Access:"
+          perl -Ilib bench-field.pl
+          echo "* Benchmark Memory Consumption:"
+          perl -Ilib bench-size.pl

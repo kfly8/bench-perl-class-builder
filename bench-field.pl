@@ -37,7 +37,30 @@ sub create_main_logic_coderef($benchmark_class) {
             baz => 'baz.',
         );
         $object->foo for 1..50;
+
+        if ($object->can('set_foo')) {
+          for my $counter (1..50) {
+            $object->set_foo($counter);
+          }
+        }
+        else {
+          for my $counter (1..50) {
+            $object->foo($counter);
+          }
+        }
+
         $object->baz for 1..50;
+
+        if ($object->can('set_baz')) {
+          for my $counter (1..50) {
+            $object->set_baz($counter);
+          }
+        }
+        else {
+          for my $counter (1..50) {
+            $object->baz($counter);
+          }
+        }
     }
 }
 
