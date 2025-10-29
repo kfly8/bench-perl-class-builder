@@ -16,7 +16,7 @@ jobs:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-24.04
     # Docker Hub image that `debian-testing` executes in
-    container: perl:5.40.3-trixie
+    container: perl:5.42.0-trixie
 
     steps:
        # List all installed Perl Libraries
