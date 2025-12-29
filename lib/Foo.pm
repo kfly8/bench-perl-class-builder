@@ -16,6 +16,7 @@ package Foo {
     use Foo::ObjectTiny;
     use Foo::Bless;
     use Foo::BlessArray;
+    use Foo::MojoBase;
 
     my $TITLE_MAPPING = {
         'Foo::FeatureClass'      => sprintf('`class feature (perl: %s)`', $]),
@@ -30,6 +31,7 @@ package Foo {
         'Foo::ObjectTiny'        => sprintf('`Object::Tiny@%s`', Object::Tiny->VERSION),
         'Foo::Bless'             => '`bless hashref`',
         'Foo::BlessArray'        => '`bless arrayref`',
+        'Foo::MojoBase'          => sprintf('`Mojo::Base@%s`', Mojo::Base->VERSION),
     };
 
     sub run_benchmark($create_main_logic_coderef) {
