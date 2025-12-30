@@ -10,6 +10,10 @@ Update README.md with benchmark results.
 
 =cut
 
+# Note: This script uses v5.38 for better portability and compatibility
+# with various environments. The benchmark scripts use v5.42 because they
+# specifically test the new class feature introduced in Perl 5.38/5.40.
+# This utility script doesn't need those features.
 use v5.38;
 use strict;
 use warnings;
