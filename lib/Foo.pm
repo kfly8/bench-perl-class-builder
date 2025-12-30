@@ -12,7 +12,6 @@ package Foo {
     use Foo::MooseXS;
     use Foo::Moo;
     use Foo::MooXS;
-    use Foo::Mojo;
     use Foo::MojoBase;
     use Foo::ClassTiny;
     use Foo::ObjectTiny;
@@ -28,7 +27,6 @@ package Foo {
         'Foo::MooXS'             => sprintf('`Moo@%s (XSConstructor + XSAccessor)`', Moo->VERSION),
         'Foo::Moose'             => sprintf('`Moose@%s`', Moose->VERSION),
         'Foo::MooseXS'           => sprintf('`Moose@%s (XSAccessor)`', Moose->VERSION),
-        'Foo::Mojo'              => sprintf('`Mojo::Base@%s (Array Declaration)`', Mojolicious->VERSION),
         'Foo::MojoBase'          => sprintf('`Mojo::Base@%s`', Mojolicious->VERSION),
         'Foo::ClassTiny'         => sprintf('`Class::Tiny@%s`', Class::Tiny->VERSION),
         'Foo::ObjectTiny'        => sprintf('`Object::Tiny@%s`', Object::Tiny->VERSION),
