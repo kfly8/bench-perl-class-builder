@@ -78,5 +78,10 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "docs: Update benchmark results [skip ci]"
-            git push
+            if git push; then
+              echo "Successfully pushed README updates"
+            else
+              echo "Error: Failed to push changes"
+              exit 1
+            fi
           fi

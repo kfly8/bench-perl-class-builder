@@ -134,8 +134,13 @@ sub update_readme_section {
 # Main logic
 sub main {
     # Check if result files exist
-    unless (-f $size_results && -f $new_results && -f $field_results) {
-        die "Result files not found. Please run benchmarks first.\n";
+    my @missing;
+    push @missing, $size_results unless -f $size_results;
+    push @missing, $new_results unless -f $new_results;
+    push @missing, $field_results unless -f $field_results;
+    
+    if (@missing) {
+        die "Result files not found: " . join(", ", @missing) . "\nPlease run benchmarks first.\n";
     }
     
     # Read README
@@ -161,8 +166,6 @@ sub main {
     # Write updated README
     open my $write_fh, '>', $readme_file or die "Cannot write to $readme_file: $!";
     print $write_fh $readme_content;
-    # Ensure file ends with newline
-    print $write_fh "\n" unless $readme_content =~ /\n$/;
     close $write_fh;
     
     say "README.md updated successfully!";
