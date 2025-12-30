@@ -1,6 +1,8 @@
 name: Benchmark on Debian Trixie
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -31,7 +33,7 @@ jobs:
       - name: Install Perl Libraries
         run: |
           apt-get update
-          apt-get -y install perlbrew cpanminus liblocal-lib-perl libdevel-size-perl
+          apt-get -y install git perlbrew cpanminus liblocal-lib-perl libdevel-size-perl
           apt-get -y install libobject-pad-perl libclass-accessor-lite-perl libmouse-perl \
             libmojolicious-perl libmoo-perl libmoose-perl libclass-tiny-perl libobject-tiny-perl \
             libmoosex-xsaccessor-perl            
@@ -39,6 +41,8 @@ jobs:
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           
       # Install missing Perl Libraries
       - name: Install Perl Libraries from cpanfile
@@ -50,9 +54,34 @@ jobs:
       - name: Run benchmarks
         run: |
           eval $(perl -Mlocal::lib -I ~/perl5/lib/perl5/)
+          mkdir -p results
           echo "* Benchmark Object Creation:"
-          perl -Ilib bench-new.pl
+          perl -Ilib bench-new.pl | tee results/bench-new.txt
           echo "* Benchmark Field Access:"
-          perl -Ilib bench-field.pl
+          perl -Ilib bench-field.pl | tee results/bench-field.txt
           echo "* Benchmark Memory Consumption:"
-          perl -Ilib bench-size.pl
+          perl -Ilib bench-size.pl | tee results/bench-size.txt
+
+      - name: Update README with benchmark results
+        if: github.event_name == 'push'
+        run: |
+          perl update-readme.pl
+
+      - name: Commit and push README changes
+        if: github.event_name == 'push'
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: Update benchmark results [skip ci]"
+            if git push; then
+              echo "Successfully pushed README updates"
+            else
+              echo "Error: Failed to push changes"
+              exit 1
+            fi
+          fi

@@ -5,3 +5,6 @@
 .vscode
 *.tdy
 *.save
+
+# Benchmark results
+results/
