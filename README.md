@@ -12,17 +12,7 @@ In the following execution environment, the class feature had the best memory ef
 
 ## Execution Environment
 
-```shell
-  ❯ inxi -SCm
-  System:
-    Host: kfly8.local Kernel: 23.1.0 arch: arm64 bits: 64 Console: s006 OS: Darwin 23.1.0
-  Memory:
-    System RAM: total: N/A available: N/A used: N/A
-    RAM Report: missing: Required tool dmidecode not installed. Check --recommends
-  CPU:
-    Info: 10-core model: Apple M2 Pro bits: 64 type: MCP
-    Speed: N/A min/max: N/A cores: No OS support for core speeds.
-```
+The following benchmarks run on GitHub Actions, workflow file: [benchmark-debian-trixie.yml](https://github.com/kfly8/bench-perl-class-builder/blob/main/.github/workflows/benchmark-debian-trixie.yml)
 
 ## Benchmark memory size
 
