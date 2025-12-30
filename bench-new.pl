@@ -25,7 +25,7 @@ Benchmark of object constructor.
 
 =cut
 
-use v5.40;
+use v5.42;
 use Foo;
 
 # This logic is creaing many objects.
