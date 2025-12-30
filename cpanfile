@@ -1,4 +1,4 @@
-requires 'perl', '5.040000';
+requires 'perl', '5.042000';
 
 requires 'Object::Pad';
 requires 'Class::Accessor::Lite';
@@ -12,4 +12,3 @@ requires 'MooX::XSConstructor';
 requires 'Mojolicious';
 
 requires 'Devel::Size';
-
