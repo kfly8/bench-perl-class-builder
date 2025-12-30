@@ -6,11 +6,14 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-     branches:    
-      - main  
+     branches:
+      - main
 
 env:
   CARGO_TERM_COLOR: always
+
+permissions:
+  contents: write
 
 jobs:
   # Label of the container job
@@ -28,7 +31,7 @@ jobs:
           dpkg --get-selections | grep -i perl | sort
           echo "* Perl Version:"
           perl --version
-        
+
       # Install missing Perl Libraries
       - name: Install Perl Libraries
         run: |
@@ -36,20 +39,20 @@ jobs:
           apt-get -y install git perlbrew cpanminus liblocal-lib-perl libdevel-size-perl
           apt-get -y install libobject-pad-perl libclass-accessor-lite-perl libmouse-perl \
             libmojolicious-perl libmoo-perl libmoose-perl libclass-tiny-perl libobject-tiny-perl \
-            libmoosex-xsaccessor-perl            
-        
+            libmoosex-xsaccessor-perl
+
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          
+
       # Install missing Perl Libraries
       - name: Install Perl Libraries from cpanfile
         run: |
           cpanm --local-lib=~/perl5 local::lib
           eval $(perl -Mlocal::lib -I ~/perl5/lib/perl5/)
-          cpanm -n --installdeps .         
+          cpanm -n --installdeps .
 
       - name: Run benchmarks
         run: |
