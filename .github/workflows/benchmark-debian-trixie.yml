@@ -33,7 +33,7 @@ jobs:
       - name: Install Perl Libraries
         run: |
           apt-get update
-          apt-get -y install perlbrew cpanminus liblocal-lib-perl libdevel-size-perl
+          apt-get -y install git perlbrew cpanminus liblocal-lib-perl libdevel-size-perl
           apt-get -y install libobject-pad-perl libclass-accessor-lite-perl libmouse-perl \
             libmojolicious-perl libmoo-perl libmoose-perl libclass-tiny-perl libobject-tiny-perl \
             libmoosex-xsaccessor-perl            
@@ -70,6 +70,7 @@ jobs:
       - name: Commit and push README changes
         if: github.event_name == 'push'
         run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
