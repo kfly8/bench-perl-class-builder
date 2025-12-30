@@ -28,7 +28,7 @@ In the following execution environment, the class feature had the best memory ef
 
 | Size     | Compare | Title                                       |
 | ---      | ---     | ---                                         |
-| 135.8 KB | --      | `class feature (perl: 5.042000)`            |
+| 135.8 KB | --      | `class feature (perl: 5.040000)`            |
 | 257.9 KB | 89.90%  | `bless arrayref`                            |
 | 265.7 KB | 95.60%  | `Object::Pad@0.808`                         |
 | 359.5 KB | 164.80% | `Mouse@v2.5.10`                             |
@@ -54,7 +54,7 @@ This result were calculated using [bench-size.pl](https://github.com/kfly8/bench
 | 1081/s | -19%    | `Moo@2.005005 (XSConstructor + XSAccessor)` |
 | 1152/s | -14%    | `Mouse@v2.5.10`                             |
 | 1195/s | -10%    | `Object::Pad@0.808`                         |
-| 1334/s | --      | `class feature (perl: 5.042000)`            |
+| 1334/s | --      | `class feature (perl: 5.040000)`            |
 | 1347/s | 1%      | `bless arrayref`                            |
 | 1674/s | 25%     | `bless hashref`                             |
 | 1690/s | 27%     | `Class::Accessor::Lite@0.08`                |
@@ -71,7 +71,7 @@ This result were calculated using [bench-new.pl](https://github.com/kfly8/bench-
 | 120302/s | -5%     | `Moo@2.005005`                              |
 | 123675/s | -2%     | `Class::Tiny@1.008`                         |
 | 124842/s | -1%     | `Moose@2.2207`                              |
-| 126030/s | --      | `class feature (perl: 5.042000)`            |
+| 126030/s | --      | `class feature (perl: 5.040000)`            |
 | 127242/s | 1%      | `bless hashref`                             |
 | 137846/s | 9%      | `bless arrayref`                            |
 | 156038/s | 24%     | `Object::Tiny@1.09`                         |
