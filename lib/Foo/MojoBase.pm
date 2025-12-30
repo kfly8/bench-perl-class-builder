@@ -1,4 +1,5 @@
 use v5.40;
+use Mojolicious;
 
 package Foo::MojoBase {
     use Mojo::Base -base, -signatures;
@@ -7,4 +8,3 @@ package Foo::MojoBase {
     has 'bar';
     has 'baz';
 }
-
