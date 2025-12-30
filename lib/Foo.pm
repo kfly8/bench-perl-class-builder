@@ -31,7 +31,7 @@ package Foo {
         'Foo::ObjectTiny'        => sprintf('`Object::Tiny@%s`', Object::Tiny->VERSION),
         'Foo::Bless'             => '`bless hashref`',
         'Foo::BlessArray'        => '`bless arrayref`',
-        'Foo::MojoBase'          => sprintf('`Mojo::Base@%s`', Mojo::Base->VERSION),
+        'Foo::MojoBase'          => sprintf('`Mojo::Base@%s`', Mojolicious->VERSION),
     };
 
     sub run_benchmark($create_main_logic_coderef) {
